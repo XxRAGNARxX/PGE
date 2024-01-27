@@ -284,3 +284,90 @@ padding-top: 100px;
         color: #fff;
     }
 
+
+    /* ----------------------- */
+    .container{
+        color: rgba(191, 186, 186, 0.549);
+        
+    }
+    footer .container{
+        background-color: rgba(10, 52, 83, 0.834);
+    }
+    
+    .row{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 100px;
+    }
+    .footer-col ul{
+        list-style: none;
+    }
+    
+    .footer-col h4{
+        color: rgba(0, 157, 255, 0.692);
+        margin-bottom: 25px;
+        font-size: 22px;
+        position: relative;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .footer-col h4::before{
+        content: '';
+        width: 70px;
+        height: 2px;
+        position: absolute;
+        background-color: rgb(8, 0, 254);
+        bottom: -10px;
+    }
+    
+    .footer-col ul li{
+        padding: 10px 0;
+    }
+    .footer-col ul li a{
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+        opacity: 0.7;
+        transition: 0.5s;
+    }
+    .footer-col ul li a:hover{
+        opacity: 1;
+    }
+    .footer-col input{
+        border: none;
+        width: 250px;
+        height: 45px;
+        display: block;
+        padding-left: 20px;
+        margin: 14px 0;
+    }
+    
+    .footer-col .inputSubmit{
+        padding: 0px 20px;
+        background-color: rgba(0, 157, 255, 0.692);
+        border: none;
+        color: black;
+    }
+    .col p{
+        color: black;
+    }
+    .row hr{
+        opacity: 0.7;
+    }
+    
+    
+    @media (max-width: 600px){
+        footer .row{
+            flex-direction: column;
+            padding: 20px 30px;
+        }
+    
+        footer .footer-col ul{
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .footer-col input{
+            width: 100%;
+        }
+    }
+

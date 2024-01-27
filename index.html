@@ -14,7 +14,7 @@
 <body>
     <section class="header">
     <nav>
-        <a href="index.html"><img src="images/untitled copy.png"></a>
+        <a href="index.html"><img src="images/logo2.png"></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
              <ul>
@@ -154,12 +154,42 @@
 
 
 
-<section class="footer">
-<h4>За Нас</h4>
-<p>dgdgdgdgdgdgdgdgdgdgdgdgdgdg
-    dgdgdgdfgfgdfgdfgdfgdfgdgdfgdfgdf <br> gdgdgfdgdfgfddddsddddddddddddddd</p>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Finegap</h4>
+                <ul>
+                    <li><a href="">Tuorials</a></li>
+                    <li><a href="">Programing</a></li>
+                    <li><a href="">Development</a></li>
+                    <li><a href="">Technology</a></li>
+                </ul>
+            </div>
 
-</section>
+            <!-- 2nd Column -->
+            <img src="images/logo2.png"  onclick="topFunction()" id="myBtn" title="Go to top" width="250" height="200">
+
+            <!-- 3rd Column -->
+            <div class="footer-col">
+                <h4>MAP</h4>
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1HXRDy1ITJS6kpWsjClID-U7taxr4oo0&ehbc=2E312F" width="400" height="200"></iframe>
+            </div>
+
+            <!-- 3th Column -->
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <form action="">
+                    <input type="text" placeholder="Your Name" class="inputName">
+                    <input type="email" placeholder="Enter Company Email" class="inputEmail">
+                    <input type="submit" value="Submit" class="inputSubmit">
+                </form>
+            </div>
+        </div>
+        <hr>
+        
+</footer>
 <script>
     var navLinks=document.getElementById("navLinks")
     function showMenu()
@@ -170,6 +200,30 @@
     {
         navLinks.style.right="-200px";
     }
+    function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document with smooth animation
+function topFunction() {
+  // For modern browsers
+  document.documentElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  // For older browsers that do not support scrollIntoView
+  if (document.body.scrollTo) {
+    document.body.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+}
 </script>
 </body>
 </html>
