@@ -35,7 +35,7 @@ nav img{
 .nav-links ul li a{
     color: #fff;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 24px;
 }
 .nav-links ul li ::after{
     content: '';
@@ -160,6 +160,17 @@ nav .fa{
     .row{
         flex-direction: column;
     }
+    @media screen and (max-width: 900px) {
+        .events .row{
+          grid-auto-columns: calc((100% / 2) - 9px);
+        }
+      }
+      
+      @media screen and (max-width: 600px) {
+        .events .row{
+          grid-auto-columns: 100%;
+        }
+      }
    }
    /*-------images-------*/
    .images{
@@ -217,27 +228,7 @@ margin: auto;
 text-align: center;
 padding-top: 100px;
 }
-.facilities-col{
-    flex-basis: 31%;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    text-align: left;
 
-}
-.facilities-col img{
-    width: 100%;
-    border-radius: 10px;
-
-}
-.facilities-col p{
-    padding: 0;
-
-}
-.facilities-col h3{
-    margin-top: 16px;
-    margin-bottom: 15px;
-    text-align: left;
-}
 /*--------call--------*/
 
 .contact{
