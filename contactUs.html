@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="contactUs.css">
 </head>
 <body>
     <section class="sub-header">
@@ -18,28 +18,61 @@
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
              <ul>
-              <li> <a href="index.html">Начало</a></li>
-              <li> <a href="about.html">За нас</a></li>
-              <li> <a href="news.html">Новини</a></li>
-              <li> <a href="">Прием</a></li>
-              <li> <a href="contactUs.html">Контакти</a></li>
+                <li> <a href="index.html">Начало</a></li>
+                <li> <a href="about.html">За нас</a></li>
+                <li> <a href="news.html">Новини</a></li>
+                <li> <a href="">Прием</a></li>
+                <li> <a href="contactUs.html">Контакти</a></li>
              </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
     <h1>За Нас</h1>
+
+
+
 </section>
+<div class="contact-us d-flex justify-content-center align-items-center">
+	
 
+	<form>
+		<h1 class="title text-center mb-4">Talk to Us</h1>
 
-<section class="about-us">
+			<!-- Name -->
+			<div class="form-group position-relative">
+				<label for="formName" class="d-block">
+					<i class="icon" data-feather="user"></i>
+				</label>
+				<input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
+			</div>
 
+			<!-- E-mail -->
+			<div class="form-group position-relative">
+				<label for="formEmail" class="d-block">
+					<i class="icon" data-feather="mail"></i>
+				</label>
+				<input type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
+			</div>
+
+			<!-- Message -->
+			<div class="form-group message">
+				<textarea id="formMessage" class="form-control form-control-lg" rows="7" cols="29" placeholder="Mensagem"></textarea>
+			</div>
+		
+			<!-- Submit btn -->
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
+			</div>
+	</form>
+	
+</div>
 </section>
 
 
 
 <footer>
     <div class="container">
-        <div class="footer-row">
+        <div class="row">
             <div class="footer-col">
                 <h4>Finegap</h4>
                 <ul>
@@ -74,6 +107,7 @@
         
 </footer>
 <script>
+  feather.replace();
     var navLinks=document.getElementById("navLinks")
     function showMenu()
     {
