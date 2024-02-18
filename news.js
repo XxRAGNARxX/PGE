@@ -1,6 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc,getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
 
 
 const firebaseConfig = {
@@ -43,7 +44,7 @@ function addNews() {
         });
 }
 
-function loadNews() {
+/*function loadNews() {
     document.getElementById("row-container").innerHTML = ""
     db.collection("news").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -64,7 +65,33 @@ function loadNews() {
             document.getElementById("row-container").innerHTML += cardHtml;
         });
     });
+}*/
+
+async function loadNews() {
+    document.getElementById("row-container").innerHTML = ""
+    const querySnapshot = await getDocs(collection(db, "news"));
+querySnapshot.forEach((doc) => {
+    const newsData = doc.data();
+    const cardHtml = `
+  <div class="row-box">
+    <div class="row-img">
+        <img src="${newsData.imgUrl}" alt="img" draggable="false" height="250px" width="350">
+    </div>
+    <div class="row-text">
+      <span>${newsData.stringDate}</span>
+      <a href="#" class="row-title">${newsData.title}</a>
+      <p>${newsData.text}</p>
+         <a href="#">Още...</a>
+    </div>
+  </div>
+`;
+    document.getElementById("row-container").innerHTML += cardHtml;
+        console.log(doc.id, " => ", doc.data());
+});
 }
+
+
+
 const addNewsbtn = document.getElementById("addNewsButton");
 if (addNewsbtn) {
     addNewsbtn.addEventListener("click", addNews);
