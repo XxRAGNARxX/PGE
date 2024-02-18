@@ -6,18 +6,16 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="news.js" type="module"></script>
     <link rel="stylesheet" href="contactUs.css">
-    
+
 </head>
 <body>
 
 <div class="containerContacts">
 <div class="container">
   <div class="text">
-     
   </div>
-  <form onsubmit="addNews(); return false;">
+  <form>
     <div class="form-row">
       <div class="input-data">
         <input type="text" required id="title">
@@ -47,11 +45,12 @@
     <div class="form-row submit-btn">
       <div class="input-data">
         <div class="inner"></div>
-        <input type="submit" value="submit">
+        <input type="button" id="addNewsButton" value="submit">
       </div>
     </div>
   </form>
   </div>
 </div>
+    <script src="news.js" type="module"></script>
 </body>
 </html>
