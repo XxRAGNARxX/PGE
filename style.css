@@ -14,7 +14,7 @@
     position: relative;
     
 }
-nav{
+ nav{
     display: flex;
     padding: 2% 6%;
     justify-content: space-between;
@@ -38,9 +38,9 @@ nav img{
 .nav-links ul li a{
     color: #fff;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 22px;
 }
-.nav-links ul li ::after{
+.nav-links ul li  ::after{
     content: '';
     width: 0%;
     height: 2px;
@@ -52,6 +52,60 @@ nav img{
 .nav-links ul li :hover::after{
     width: 100%;
 }
+.dropdown  ::after{
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: rgba(0, 157, 255, 0.692);
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+    .dropdown :hover::after{
+        width: 100%;
+} 
+ .dropbtn {
+    background-color: #00000000;
+    color: white;
+    padding: 8px 12px;
+    font-size: 22px;
+    border: none;
+  }
+  
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+  .dropdown-content {
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: #00000000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.048);
+    z-index: 1;
+  }
+  
+
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+  }
+  
+ 
+  .dropdown-content a:hover {background-color: #0b293a21;}
+  
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+ 
+
+
 .text-box{
     width: 90%;
     color: #fff;
@@ -66,7 +120,7 @@ nav img{
 }
 .text-box p{
 margin: 10px 0 40px;animation: fadeIn 2s;
-font-size: 14px;
+font-size: 17px;
 color:#fff;
 }
 .hero-btn{
@@ -88,10 +142,13 @@ nav .fa{
     display: none;
 }
 
-@media(max-width: 700px)
+@media(max-width: 800px)
 {
+    .dropdown-content {
+        text-align: left;
+    }
     .text-box h1{
-        font-size: 20px;
+        font-size: 40px;
     }
     .nav-links ul li{
         display: block;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="contactUs.css">
 </head>
 <body>
-    <section class="sub-header">
+     <section class="sub-header">
     <nav>
         <a href="index.html"><img src="images/logo2.png"></a>
         <div class="nav-links" id="navLinks">
@@ -27,85 +27,80 @@
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
-    <h1>За Нас</h1>
+    <h1>Контакти</h1>
+</section> 
 
 
 
-</section>
-<div class="contact-us d-flex justify-content-center align-items-center">
-	
-
-	<form>
-		<h1 class="title text-center mb-4">Talk to Us</h1>
-
-			<!-- Name -->
-			<div class="form-group position-relative">
-				<label for="formName" class="d-block">
-					<i class="icon" data-feather="user"></i>
-				</label>
-				<input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
-			</div>
-
-			<!-- E-mail -->
-			<div class="form-group position-relative">
-				<label for="formEmail" class="d-block">
-					<i class="icon" data-feather="mail"></i>
-				</label>
-				<input type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
-			</div>
-
-			<!-- Message -->
-			<div class="form-group message">
-				<textarea id="formMessage" class="form-control form-control-lg" rows="7" cols="29" placeholder="Mensagem"></textarea>
-			</div>
-		
-			<!-- Submit btn -->
-			<div class="text-center">
-				<button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
-			</div>
-	</form>
-	
-</div>
-</section>
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="footer-col">
-                <h4>Finegap</h4>
-                <ul>
-                    <li><a href="">Tuorials</a></li>
-                    <li><a href="">Programing</a></li>
-                    <li><a href="">Development</a></li>
-                    <li><a href="">Technology</a></li>
-                </ul>
-            </div>
-
-            <!-- 2nd Column -->
-            <img src="images/untitled copy.png"  onclick="topFunction()" id="myBtn" title="Go to top" width="200" height="200">
-
-            <!-- 3rd Column -->
-            <div class="footer-col">
-                <h4>MAP</h4>
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1HXRDy1ITJS6kpWsjClID-U7taxr4oo0&ehbc=2E312F" width="400" height="200"></iframe>
-            </div>
-
-            <!-- 3th Column -->
-
-            <div class="footer-col">
-                <h4>Newsletter</h4>
-                <form action="">
-                    <input type="text" placeholder="Your Name" class="inputName">
-                    <input type="email" placeholder="Enter Company Email" class="inputEmail">
-                    <input type="submit" value="Submit" class="inputSubmit">
-                </form>
-            </div>
+<div class="containerContacts">
+<div class="container">
+  <div class="text">
+     Contact us Form
+  </div>
+  <form action="#">
+     <div class="form-row">
+        <div class="input-data">
+           <input type="text" required>
+           <div class="underline"></div>
+           <label for="">First Name</label>
         </div>
-        <hr>
+   
+   
+        <div class="input-data">
+           <input type="text" required>
+           <div class="underline"></div>
+           <label for="">Email Address</label>
+        </div>
+       
+     </div>
+     <div class="form-row">
+     <div class="input-data textarea">
+        <textarea rows="8" cols="80" required></textarea>
+        <br />
+        <div class="underline"></div>
+        <label for="">Write your message</label>
+        <br />
+        <div class="form-row submit-btn">
+           <div class="input-data">
+              <div class="inner"></div>
+              <input type="submit" value="submit">
+           </div>
+        </div>
+  </form>
+  </div>
+</div>
+
+
+<!-- <footer>
+  <div class="footer">
+      <div class="footer-row">
+          <div class="footer-col">
+              <h4>MENU</h4>
+              <ul>
+                <li> <a href="index.html">Начало</a></li>
+              <li> <a href="about.html">За нас</a></li>
+              <li> <a href="">Новини</a></li>
+              <li> <a href="">Прием</a></li>
+              <li> <a href="contactUs.html">Контакти</a></li>
+              </ul>
+          </div>
+
         
-</footer>
+          <img src="images/logo2.png"  onclick="topFunction()" id="myBtn" title="Go to top" width="250" height="200">
+
+      
+          <div class="footer-col">
+              <h4>MAP</h4>
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1HXRDy1ITJS6kpWsjClID-U7taxr4oo0&ehbc=2E312F" width="400" height="200"></iframe>
+          </div>
+
+    
+
+          
+      </div>
+      <hr>
+      
+</footer> -->
 <script>
   feather.replace();
     var navLinks=document.getElementById("navLinks")
