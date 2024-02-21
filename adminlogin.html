@@ -7,19 +7,8 @@
    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="adminlogin.css">
-     <!-- The core Firebase JS SDK is always required and must be listed first -->
-     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-
-     <!-- TODO: Add SDKs for Firebase products that you want to use
-          https://firebase.google.com/docs/web/setup#available-libraries -->
-     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script> 
-     <script src="admin.js" ></script>
 </head>
 <body>
-    
-        
-    
         <div id="content_container">
             <div id="form_container">
                 <div id="form_header_container">
@@ -31,13 +20,9 @@
                         <input type="text" id="full_name" placeholder="Full name">
                         <input type="email" id="email" placeholder="Email">
                         <input type="password" id="password" placeholder="New Password">
-
-                        <input type="text" id="favourite_song" placeholder="The Best Song Ever">
-                        <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? ( Yes | No )">
-
                         <div id="button_container">
-                            <button onclick="login()">Login</button>
-                            <button onclick="register()">Register</button>
+                            <button  id="loginbtn">Login</button>
+                            <button id="regbtn">Register</button>
                         </div>
 
                     </div>
@@ -46,50 +31,6 @@
         </div>
         
     </div>
-    </section>
-    
-    
-    
-   
-    <script>
-      feather.replace();
-        var navLinks=document.getElementById("navLinks")
-        function showMenu()
-        {
-            navLinks.style.right="0";
-        }
-        function hideMenu()
-        {
-            navLinks.style.right="-200px";
-        }
-        window.onscroll = function() {
-      scrollFunction();
-    };
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    
-    // When the user clicks on the button, scroll to the top of the document with smooth animation
-    function topFunction() {
-      // For modern browsers
-      document.documentElement.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    
-      // For older browsers that do not support scrollIntoView
-      if (document.body.scrollTo) {
-        document.body.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
-    }
-    </script>
+    <script src="admin.js" type="module"></script>
 </body>
 </html>
