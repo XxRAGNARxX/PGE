@@ -75,12 +75,12 @@ querySnapshot.forEach((doc) => {
     const cardHtml = `
   <div class="row-box">
     <div class="row-img">
-        <img src="${newsData.imgUrl}" alt="img" draggable="false" height="250px" width="350">
+        <img src="${newsData.img}" alt="img" draggable="false" height="250px" width="350">
     </div>
     <div class="row-text">
-      <span>${newsData.stringDate}</span>
+      <span>${newsData.date}</span>
       <a href="#" class="row-title">${newsData.title}</a>
-      <p>${newsData.text}</p>
+      <p>${newsData.news}</p>
          <a href="#">Още...</a>
     </div>
   </div>
@@ -89,9 +89,6 @@ querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
 });
 }
-
-
-
 const addNewsbtn = document.getElementById("addNewsButton");
 if (addNewsbtn) {
     addNewsbtn.addEventListener("click", addNews);
