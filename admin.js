@@ -42,33 +42,33 @@ function register() {
   //}
  
   // Move on with Auth
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(function(userCredentials) {
-    // Declare user variable
-    var user =  userCredentials.user;
+  // createUserWithEmailAndPassword(auth, email, password)
+  // .then(function(userCredentials) {
+  //   // Declare user variable
+  //   var user =  userCredentials.user;
 
-    // Add this user to Firebase Database
-    var database_ref = ref(database, "users/"+user.uid)
+  //   // Add this user to Firebase Database
+  //   var database_ref = ref(database, "users/"+user.uid)
 
-    // Create User data
-    var user_data = {
-      email : email,
-      full_name : full_name,
-    }
+  //   // Create User data
+  //   var user_data = {
+  //     email : email,
+  //     full_name : full_name,
+  //   }
 
-    // Push to Firebase Database
-    set(database_ref, user_data)
+  //   // Push to Firebase Database
+  //   set(database_ref, user_data)
 
-    // DOne
-    alert('User Created!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
+  //   // DOne
+  //   alert('User Created!!')
+  // })
+  // .catch(function(error) {
+  //   // Firebase will use this to alert of its errors
+  //   var error_code = error.code
+  //   var error_message = error.message
 
-    alert(error_message)
-  })
+  //   alert(error_message)
+  // })
 }
 
 // Set up our login function
@@ -101,6 +101,7 @@ function login() {
     update(database_ref, user_data)
 
     // DOne
+    window.location.href = "adminAddNews.html";
     alert('User Logged In!!')
 
   })
@@ -112,9 +113,6 @@ function login() {
     alert(error_message)
   })
 }
-
-
-
 
 // Validate Functions
 function validate_email(email) {
@@ -137,13 +135,3 @@ function validate_password(password) {
   }
 }
 
-function validate_field(field) {
-  if (field == null) {
-    return false
-  }
-
-  if (field.length <= 0) {
-    return false
-  }
-  return true
-}

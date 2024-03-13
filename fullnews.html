@@ -9,10 +9,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="news.js" type="module"></script>
+    <style>
+      
+      .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+        }
+        .image-container {
+            flex: 0 0 400px;
+            margin-right: 20px;
+          
+            align-items: center;
 
+        }
+        #newsImg {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            flex: 1;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        #newsDate {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        #newsContent {
+            line-height: 1.6;
+            color: #444;
+        }
+  </style>
 </head>
 <body>
     <section class="sub-header">
@@ -23,22 +62,46 @@
              <ul>
               <li> <a href="index.html">Начало</a></li>
               <li> <a href="about.html">За нас</a></li>
-              <li> <a href="">Новини</a></li>
+              <li> <a href="news.html">Новини</a></li>
               <li> <a href="">Прием</a></li>
               <li> <a href="contactUs.html">Контакти</a></li>
              </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
-    <h1>Новини</h1>
+    <h1>За Нас</h1>
+    
 </section>
-
 <section class="events">
 
-            <div class="row-container" id="row-container" onload="() => loadNews()">  <!--how will the news get here -->
+  <div class="news-container">
+    <div class="image-container">
+        <img id="newsImg" alt="news image">
     </div>
-     
-  </section>
+    <div class="content">
+        <h1 id="newsTitle"></h1>
+        <p id="newsDate"></p>
+        <p id="newsContent"></p>
+    </div>
+</div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = decodeURIComponent(urlParams.get('title'));
+        const date = decodeURIComponent(urlParams.get('date'));
+        const img = decodeURIComponent(urlParams.get('img'));
+        const news = decodeURIComponent(urlParams.get('news'));
+
+        document.getElementById('newsTitle').innerText = title;
+        document.getElementById('newsDate').innerText = date;
+        document.getElementById('newsImg').src = img;
+        document.getElementById('newsContent').innerText = news;
+    </script>
+
+</section>
+
+
+
 <footer>
     <div class="container">
         <div class="footer-row">
@@ -73,9 +136,10 @@
             </div>
         </div>
         <hr>
-
+        
 </footer>
 <script>
+  
     var navLinks=document.getElementById("navLinks")
     function showMenu()
     {
@@ -86,10 +150,16 @@
         navLinks.style.right="-200px";
     }
     window.onscroll = function() {
-
+  scrollFunction();
 };
 
-
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
 // When the user clicks on the button, scroll to the top of the document with smooth animation
 function topFunction() {

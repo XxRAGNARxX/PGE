@@ -44,51 +44,32 @@ function addNews() {
         });
 }
 
-/*function loadNews() {
-    document.getElementById("row-container").innerHTML = ""
-    db.collection("news").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            const newsData = doc.data();
-            const cardHtml = `
-          <div class="row-box">
-            <div class="row-img">
-                <img src="${newsData.imgUrl}" alt="img" draggable="false" height="250px" width="350">
-            </div>
-            <div class="row-text">
-              <span>${newsData.stringDate}</span>
-              <a href="#" class="row-title">${newsData.title}</a>
-              <p>${newsData.text}</p>
-                 <a href="#">Още...</a>
-            </div>
-          </div>
-      `;
-            document.getElementById("row-container").innerHTML += cardHtml;
-        });
-    });
-}*/
 
+
+// Function to load news from the database
 async function loadNews() {
-    document.getElementById("row-container").innerHTML = ""
+    document.getElementById("row-container").innerHTML = "";
     const querySnapshot = await getDocs(collection(db, "news"));
-querySnapshot.forEach((doc) => {
-    const newsData = doc.data();
-    const cardHtml = `
-  <div class="row-box">
-    <div class="row-img">
-        <img src="${newsData.img}" alt="img" draggable="false" height="250px" width="350">
-    </div>
-    <div class="row-text">
-      <span>${newsData.date}</span>
-      <a href="#" class="row-title">${newsData.title}</a>
-      <p>${newsData.news}</p>
-         <a href="#">Още...</a>
-    </div>
-  </div>
-`;
-    document.getElementById("row-container").innerHTML += cardHtml;
+    querySnapshot.forEach((doc) => {
+        const newsData = doc.data();
+        const cardHtml = `
+            <div class="row-box">
+                <div class="row-img">
+                    <img src="${newsData.img}" alt="img" draggable="false" height="250px" width="350">
+                </div>
+                <div class="row-text">
+                    <span>${newsData.date}</span>
+                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                    <p>${newsData.news}</p>
+                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&news=${encodeURIComponent(newsData.news)}">Още...</a>
+                </div>
+            </div>
+        `;
+        document.getElementById("row-container").innerHTML += cardHtml;
         console.log(doc.id, " => ", doc.data());
-});
+    });
 }
+
 const addNewsbtn = document.getElementById("addNewsButton");
 if (addNewsbtn) {
     addNewsbtn.addEventListener("click", addNews);
