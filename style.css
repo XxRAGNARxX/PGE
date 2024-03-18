@@ -88,24 +88,14 @@ nav img{
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.048);
     z-index: 1;
   }
-  
-
   .dropdown-content a {
     color: rgb(255, 255, 255);
     padding: 8px 12px;
     text-decoration: none;
     display: block;
   }
-  
- 
   .dropdown-content a:hover {background-color: #0b293a21;}
-  
-
   .dropdown:hover .dropdown-content {display: block;}
-
- 
-
-
 .text-box{
     width: 90%;
     color: #fff;

@@ -5,7 +5,7 @@
 .containerContacts{
   display: flex;
   align-items:center;
-  justify-content: right;
+  justify-content: center;
   min-height: 450px;
   padding: 10px;
   font-family: 'Poppins', sans-serif;

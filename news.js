@@ -24,20 +24,30 @@ function addNews() {
     const title = document.getElementById('title').value;
     const date = document.getElementById('date').value;
     const img = document.getElementById('img').value;
+    const img2 = document.getElementById('img2').value;
+    const img3 = document.getElementById('img3').value;
+    const resume = document.getElementById('resume').value;
     const news = document.getElementById('news').value;
 
     addDoc(collection(db, "news"), {
         title: title,
         date: date,
         img: img,
-        news: news
+        img2: img2,
+        img3: img3,
+        news: news,
+        resume:resume,
+
     })
         .then(() => {
             console.log("Document successfully written!");
             document.getElementById('title').value = '';
             document.getElementById('date').value = '';
             document.getElementById('img').value = '';
+            document.getElementById('img2').value = '';
+            document.getElementById('img3').value = '';
             document.getElementById('news').value = '';
+            document.getElementById('resume').value = '';
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
@@ -59,9 +69,9 @@ async function loadNews() {
                 </div>
                 <div class="row-text">
                     <span>${newsData.date}</span>
-                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
-                    <p>${newsData.news}</p>
-                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&news=${encodeURIComponent(newsData.news)}">Още...</a>
+                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                    <p>${newsData.resume}</p>
+                     <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Още...</a>
                 </div>
             </div>
         `;

@@ -36,39 +36,7 @@ function register() {
     return
     // Don't continue running the code
   }
-  //if (!validate_field(full_name) || !validate_field(favourite_song) || !validate_field(milk_before_cereal)) {
-  //  alert('One or More Extra Fields is Outta Line!!')
-  //  return
-  //}
- 
-  // Move on with Auth
-  // createUserWithEmailAndPassword(auth, email, password)
-  // .then(function(userCredentials) {
-  //   // Declare user variable
-  //   var user =  userCredentials.user;
-
-  //   // Add this user to Firebase Database
-  //   var database_ref = ref(database, "users/"+user.uid)
-
-  //   // Create User data
-  //   var user_data = {
-  //     email : email,
-  //     full_name : full_name,
-  //   }
-
-  //   // Push to Firebase Database
-  //   set(database_ref, user_data)
-
-  //   // DOne
-  //   alert('User Created!!')
-  // })
-  // .catch(function(error) {
-  //   // Firebase will use this to alert of its errors
-  //   var error_code = error.code
-  //   var error_message = error.message
-
-  //   alert(error_message)
-  // })
+  
 }
 
 // Set up our login function
@@ -101,8 +69,7 @@ function login() {
     update(database_ref, user_data)
 
     // DOne
-    window.location.href = "adminAddNews.html";
-    alert('User Logged In!!')
+    window.location.href = "adminMenu.html";
 
   })
   .catch(function(error) {

@@ -27,7 +27,7 @@
             align-items: center;
 
         }
-        #newsImg {
+        #newsImg,#newsImg2,#newsImg3{
             width: 100%;
             max-width: 400px;
             height: auto;
@@ -76,12 +76,14 @@
 
   <div class="news-container">
     <div class="image-container">
-        <img id="newsImg" alt="news image">
+        <img id="newsImg" alt="news image" >
+        <img id="newsImg2" alt="news image">
+        <img id="newsImg3" alt="news image">
     </div>
     <div class="content">
         <h1 id="newsTitle"></h1>
         <p id="newsDate"></p>
-        <p id="newsContent"></p>
+        <p id="Fullnews"></p>
     </div>
 </div>
 
@@ -90,54 +92,23 @@
         const title = decodeURIComponent(urlParams.get('title'));
         const date = decodeURIComponent(urlParams.get('date'));
         const img = decodeURIComponent(urlParams.get('img'));
+        const img2 = decodeURIComponent(urlParams.get('img2'));
+        const img3 = decodeURIComponent(urlParams.get('img3'));
         const news = decodeURIComponent(urlParams.get('news'));
 
         document.getElementById('newsTitle').innerText = title;
         document.getElementById('newsDate').innerText = date;
         document.getElementById('newsImg').src = img;
-        document.getElementById('newsContent').innerText = news;
+        document.getElementById('newsImg2').src = img2;
+        document.getElementById('newsImg3').src = img3;
+        document.getElementById('Fullnews').innerText = news;
+       
     </script>
 
 </section>
 
 
 
-<footer>
-    <div class="container">
-        <div class="footer-row">
-            <div class="footer-col">
-                <h4>Finegap</h4>
-                <ul>
-                    <li><a href="">Tuorials</a></li>
-                    <li><a href="">Programing</a></li>
-                    <li><a href="">Development</a></li>
-                    <li><a href="">Technology</a></li>
-                </ul>
-            </div>
-
-            <!-- 2nd Column -->
-            <img src="images/untitled copy.png"  onclick="topFunction()" id="myBtn" title="Go to top" width="200" height="200">
-
-            <!-- 3rd Column -->
-            <div class="footer-col">
-                <h4>MAP</h4>
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1HXRDy1ITJS6kpWsjClID-U7taxr4oo0&ehbc=2E312F" width="400" height="200"></iframe>
-            </div>
-
-            <!-- 3th Column -->
-
-            <div class="footer-col">
-                <h4>Newsletter</h4>
-                <form action="">
-                    <input type="text" placeholder="Your Name" class="inputName">
-                    <input type="email" placeholder="Enter Company Email" class="inputEmail">
-                    <input type="submit" value="Submit" class="inputSubmit">
-                </form>
-            </div>
-        </div>
-        <hr>
-        
-</footer>
 <script>
   
     var navLinks=document.getElementById("navLinks")

@@ -8,6 +8,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="contactUs.css">
 
+ 
 </head>
 <body>
 
@@ -28,15 +29,36 @@
         <div class="underline"></div>
         <label for="">Date</label>
       </div>
+    </div>
+    <div class="form-row">
       <div class="input-data">
         <input type="text" required id="img">
         <div class="underline"></div>
-        <label for="">Img</label>
+        <label for="">img Main</label>
+      </div>
+      <div class="input-data">
+        <input type="text" required id="img2">
+        <div class="underline"></div>
+        <label for="">img2</label>
+      </div>
+      <div class="input-data">
+        <input type="text" required id="img3">
+        <div class="underline"></div>
+        <label for="">img3</label>
       </div>
     </div>
     <div class="form-row">
       <div class="input-data textarea">
-        <textarea rows="8" cols="80" required id="news"></textarea>
+        <textarea rows="82" cols="80" required id="resume"></textarea>
+        <br />
+        <div class="underline"></div>
+        <label for="">Resume</label>
+        <br />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-data textarea">
+        <textarea rows="82" cols="80" required id="news"></textarea>
         <br />
         <div class="underline"></div>
         <label for="">Text</label>
@@ -44,12 +66,17 @@
       </div>
     </div>
     <div class="form-row submit-btn">
+      <div class="input-data" >
+        <div ></div>
+ 
+        
+      </div>
       <div class="input-data">
         <div class="inner"></div>
         <input type="button" id="addNewsButton" value="submit">
       </div>
     </div>
-  </form>
+  </form><a href="adminMenu.html"><button style="--clr:#FF44CC"><span>Back</span><i></i></button></a>
   </div>
 </div>
     <script src="news.js" type="module"></script>
