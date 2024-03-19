@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import {getDatabase, ref, set,update,child} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"
+import {getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import {getDatabase, ref,update} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"
 
 const firebaseConfig = {
   apiKey: "AIzaSyAT9P-YtX3qerVIk2CxpiqKeyY9D6hD27U",
