@@ -20,8 +20,8 @@ const db = getFirestore(app);
 // Function to add news
 function addNews() {
     console.log("entered func");
-    const doc_title = document.getElementById('doc_title').value;
-    const path = document.getElementById('path').value;
+    const doc_title = document.getElementById('doc_Priem_title').value;
+    const path = document.getElementById('path_Priem').value;
 
     addDoc(collection(db, "doc-priem"), {
         doc_title:doc_title,
