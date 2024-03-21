@@ -114,6 +114,5 @@ window.onload = () => {
     } else {
         collectionName = "priem"; // Default collection name
     }
-
     loadDocPriem(collectionName);
 };

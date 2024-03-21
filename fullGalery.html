@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="fullGalery.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="news.js" type="module"></script>
+    <script src="" type="module"></script>
 
 </head>
 <body>
@@ -43,45 +44,30 @@
     </nav>
     <h1>Новини</h1>
 </section>
-
-<section class="events">
-
-            <div class="row-container" id="row-container" onload="() => loadNews()">  <!--how will the news get here --></div>
-     
-  </section>
-
-<script>
-    var navLinks=document.getElementById("navLinks")
-    function showMenu()
-    {
-        navLinks.style.right="0";
-    }
-    function hideMenu()
-    {
-        navLinks.style.right="-200px";
-    }
-    window.onscroll = function() {
-
-};
-
-
-
-// When the user clicks on the button, scroll to the top of the document with smooth animation
-function topFunction() {
-  // For modern browsers
-  document.documentElement.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-  // For older browsers that do not support scrollIntoView
-  if (document.body.scrollTo) {
-    document.body.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-}
-</script>
+    <div class="wrapper">
+        <img src="https://source.unsplash.com/random/600x600?water" alt="">
+        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
+        <img src="https://source.unsplash.com/random/600x600?plants" alt="">
+        <img src="https://source.unsplash.com/random/600x600?snow" alt="">
+        
+        <img src="https://source.unsplash.com/random/600x600?sky" alt="">
+        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
+       
+        <img src="https://source.unsplash.com/random/600x600?ice" alt="">
+        <img src="https://source.unsplash.com/random/600x600?spring" alt="">
+        <img src="https://source.unsplash.com/random/600x600?water" alt="">
+        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
+        
+        <img src="https://source.unsplash.com/random/600x600?snow" alt="" >
+        <img src="https://source.unsplash.com/random/600x600?roses" alt="">
+        
+        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
+        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
+        
+        <img src="https://source.unsplash.com/random/600x600?snow" alt="">
+        <img src="https://source.unsplash.com/random/600x600?roses" alt="">
+        
+        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
+      </div>
 </body>
 </html>
