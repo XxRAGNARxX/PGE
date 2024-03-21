@@ -7,43 +7,60 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="contactUs.css">
-
- 
+    <script src="documentsPriem.js" type="module"></script>
 </head>
 <body>
+    <div class="containerContacts">
+        <div class="container">
+            <div class="text">
+                AddPriemDoc
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" required id="docPrieTtitle">
+                        <div class="underline"></div>
+                        <label for="">Title</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                  <div class="input-data">
+                      <input type="radio" id="priem" name="docType" value="priem">
+                      <label for="priem">Прием</label>
+                  </div>
+                  <div class="input-data">
+                      <input type="radio" id="school" name="docType" value="school">
+                      <label for="school">Училищна документация</label>
+                  </div>
+                  <div class="input-data">
+                      <input type="radio" id="normativni" name="docType" value="normativni">
+                      <label for="normativni">Нормативни документи</label>
+                  </div>
+                  <div class="input-data">
+                      <input type="radio" id="budget" name="docType" value="budget">
+                      <label for="budget">Бюджет</label>
+                  </div>
+              </div>
+                <div class="form-row">
+                    <div>
+                        <input type="file" required id="pdfFile">
+                        <div class="underline"></div>
+                        
+                    </div>
+                </div>
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                    </div>
+                    <div class="input-data">
+                        <div class="inner"></div>
+                        <input type="button" id="addDocPriemButton" value="Submit"></button>
+                    </div>
+                </div>
+            </form>
+            <a href="adminMenu.html"><button><span>Back</span></button></a>
+        </div>
+    </div>
 
-<div class="containerContacts">
-<div class="container">
-  <div class="text">
-    AddPriemDoc
-  </div>
-  <form>
-    <div class="form-row">
-      <div class="input-data">
-        <input type="text" required id="doc_Priem_title">
-        <div class="underline"></div>
-        <label for="">Title</label>
-    </div>
-    </div>
-    <div class="form-row">
-      <div class="input-data">
-        <input type="text" required id="path_Priem">
-        <div class="underline"></div>
-        <label for="">path</label>
-      </div>
-    </div>
-    <div class="form-row submit-btn">
-      <div class="input-data" >
-        <div ></div>
-      </div>
-      <div class="input-data">
-        <div class="inner"></div>
-        <input type="button" id="addDocPriemButton" value="submit">
-      </div>
-    </div>
-  </form><a href="adminMenu.html"><button style="--clr:#FF44CC"><span>Back</span><i></i></button></a>
-  </div>
-</div>
-    <script src="news.js" type="module"></script>
+    <iframe id="pdfViewer" width="100%" height="500px" style="display: none;"></iframe>
 </body>
 </html>
