@@ -4,16 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="fullGalery.css">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+    <script src="adminAddGallery.js" type="module"></script>
+<style>
+  #galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
+.gallery-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gallery-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Full Gallery Styles */
+.full-gallery {
+  padding: 20px;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.full-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.full-gallery img:hover {
+  transform: scale(1.05);
+}
+</style>
 </head>
 <body>
     <section class="sub-header">
@@ -42,32 +90,14 @@
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
-    <h1>Новини</h1>
+    <h1>Full Gallery</h1>
 </section>
-    <div class="wrapper">
-        <img src="https://source.unsplash.com/random/600x600?water" alt="">
-        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
-        <img src="https://source.unsplash.com/random/600x600?plants" alt="">
-        <img src="https://source.unsplash.com/random/600x600?snow" alt="">
-        
-        <img src="https://source.unsplash.com/random/600x600?sky" alt="">
-        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
-       
-        <img src="https://source.unsplash.com/random/600x600?ice" alt="">
-        <img src="https://source.unsplash.com/random/600x600?spring" alt="">
-        <img src="https://source.unsplash.com/random/600x600?water" alt="">
-        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
-        
-        <img src="https://source.unsplash.com/random/600x600?snow" alt="" >
-        <img src="https://source.unsplash.com/random/600x600?roses" alt="">
-        
-        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
-        <img src="https://source.unsplash.com/random/600x600?summer" alt="">
-        
-        <img src="https://source.unsplash.com/random/600x600?snow" alt="">
-        <img src="https://source.unsplash.com/random/600x600?roses" alt="">
-        
-        <img src="https://source.unsplash.com/random/600x600?nature" alt="">
-      </div>
-</body>
+
+<section class="full-gallery">
+  <div class="images-container" id="imagesContainer">
+      <!-- All images from the selected gallery -->
+  </div>
+</section>
+</div>
+</div>
 </html>
