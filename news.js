@@ -96,7 +96,7 @@ async function loadNews() {
                     </div>
                     <div class="row-text">
                         <span>${newsData.date}</span>
-                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                        <a  href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
                         <p>${newsData.resume}</p>
                         <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Read More...</a>
                     </div>
