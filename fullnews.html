@@ -87,9 +87,10 @@
 
   <div class="news-container">
     <div class="image-container">
-        <img id="newsImg" alt="news image" >
-        <img id="newsImg2" alt="news image">
-        <img id="newsImg3" alt="news image">
+        <img id="newsImg" alt="" >
+        <img id="newsImg2" alt="">
+        <img id="newsImg3" alt="">
+        <img id="newsImg4" alt="">
     </div>
     <div class="content">
         <h1 id="newsTitle"></h1>
@@ -102,16 +103,18 @@
         const urlParams = new URLSearchParams(window.location.search);
         const title = decodeURIComponent(urlParams.get('title'));
         const date = decodeURIComponent(urlParams.get('date'));
-        const img = decodeURIComponent(urlParams.get('img'));
+        const img1 = decodeURIComponent(urlParams.get('img1'));
         const img2 = decodeURIComponent(urlParams.get('img2'));
         const img3 = decodeURIComponent(urlParams.get('img3'));
+        const img4 = decodeURIComponent(urlParams.get('img4'));
         const news = decodeURIComponent(urlParams.get('news'));
 
         document.getElementById('newsTitle').innerText = title;
         document.getElementById('newsDate').innerText = date;
-        document.getElementById('newsImg').src = img;
+        document.getElementById('newsImg').src = img1;
         document.getElementById('newsImg2').src = img2;
         document.getElementById('newsImg3').src = img3;
+        document.getElementById('newsImg4').src = img4;
         document.getElementById('Fullnews').innerText = news;
        
     </script>

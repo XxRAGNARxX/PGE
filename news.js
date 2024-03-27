@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc,getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
 
 const firebaseConfig = {
@@ -14,75 +14,110 @@ const firebaseConfig = {
     measurementId: "G-J0T28QC6T2"
 };
 
-// Initialize Firebase app and Firestore
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // Function to add news
-function addNews() {
-    console.log("entered func");
-    const title = document.getElementById('title').value;
-    const date = document.getElementById('date').value;
-    const img = document.getElementById('img').value;
-    const img2 = document.getElementById('img2').value;
-    const img3 = document.getElementById('img3').value;
-    const resume = document.getElementById('resume').value;
-    const news = document.getElementById('news').value;
+async function addNews(e) {
+    e.preventDefault();
 
-    addDoc(collection(db, "news"), {
-        title: title,
-        date: date,
-        img: img,
-        img2: img2,
-        img3: img3,
-        news: news,
-        resume:resume,
+    const newsForm = document.getElementById('newsForm');
+    const title = newsForm['title'].value;
+    const date = newsForm['date'].value;
+    const resume = newsForm['resume'].value;
+    const newsText = newsForm['news'].value;
+    let img1 = "";
+    let img2 = "";
+    let img3 = "";
+    let img4 = "";
 
-    })
-        .then(() => {
-            console.log("Document successfully written!");
-            document.getElementById('title').value = '';
-            document.getElementById('date').value = '';
-            document.getElementById('img').value = '';
-            document.getElementById('img2').value = '';
-            document.getElementById('img3').value = '';
-            document.getElementById('news').value = '';
-            document.getElementById('resume').value = '';
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
+    // Function to upload image to Firebase Storage
+    const uploadImage = async (imageFile, imageName) => {
+        const storageRef = ref(storage, `images/${imageName}`);
+        const snapshot = await uploadBytes(storageRef, imageFile);
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        return downloadURL;
+    };
+
+    // Check if image files are selected and upload if they are
+    if (newsForm['img1'].files[0]) {
+        img1 = await uploadImage(newsForm['img1'].files[0], newsForm['img1'].files[0].name);
+    }
+    if (newsForm['img2'].files[0]) {
+        img2 = await uploadImage(newsForm['img2'].files[0], newsForm['img2'].files[0].name);
+    }
+    if (newsForm['img3'].files[0]) {
+        img3 = await uploadImage(newsForm['img3'].files[0], newsForm['img3'].files[0].name);
+    }
+    if (newsForm['img4'].files[0]) {
+        img4 = await uploadImage(newsForm['img4'].files[0], newsForm['img4'].files[0].name);
+    }
+
+    try {
+        await addDoc(collection(db, 'news'), {
+            title: title,
+            date: date,
+            resume: resume,
+            news: newsText,
+            img1: img1,
+            img2: img2,
+            img3: img3,
+            img4: img4
         });
+
+        console.log("News added successfully!");
+
+        // Clear the form
+        newsForm.reset();
+
+        // Reload all news items
+        loadNews();
+    } catch (error) {
+        console.error('Error adding news:', error);
+        alert('Error adding news. Please try again later.');
+    }
 }
-
-
 
 // Function to load news from the database
 async function loadNews() {
-    document.getElementById("row-container").innerHTML = "";
-    const querySnapshot = await getDocs(collection(db, "news"));
-    querySnapshot.forEach((doc) => {
-        const newsData = doc.data();
-        const cardHtml = `
-            <div class="row-box">
-                <div class="row-img">
-                    <img src="${newsData.img}" alt="img" draggable="false" height="250px" width="350">
+    const rowContainer = document.getElementById('row-container');
+    try {
+        const querySnapshot = await getDocs(collection(db, "news"));
+        rowContainer.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+            const newsData = doc.data();
+            const cardHtml = `
+                <div class="row-box">
+                    <div class="row-img">
+                        <img src="${newsData.img1}" alt="img1" draggable="false" height="250px" width="350">
+                    </div>
+                    <div class="row-text">
+                        <span>${newsData.date}</span>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                        <p>${newsData.resume}</p>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Read More...</a>
+                    </div>
                 </div>
-                <div class="row-text">
-                    <span>${newsData.date}</span>
-                    <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
-                    <p>${newsData.resume}</p>
-                     <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img=${encodeURIComponent(newsData.img)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Още...</a>
-                </div>
-            </div>
-        `;
-        document.getElementById("row-container").innerHTML += cardHtml;
-        console.log(doc.id, " => ", doc.data());
-    });
+            `;
+            rowContainer.innerHTML += cardHtml;
+        });
+    } catch (error) {
+        console.error('Error loading news:', error);
+    }
 }
 
-const addNewsbtn = document.getElementById("addNewsButton");
-if (addNewsbtn) {
-    addNewsbtn.addEventListener("click", addNews);
-}
-
+// Call loadNews() on page load
 loadNews();
+
+// Event listener for form submission
+document.addEventListener('DOMContentLoaded', function () {
+    const newsForm = document.getElementById('newsForm');
+    newsForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent default form submission
+        console.log("Submitting form...");
+        addNews(e); // Pass the event to the addNews function
+    });
+});
