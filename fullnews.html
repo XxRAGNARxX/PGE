@@ -10,47 +10,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-      
       .news-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            display: flex;
-        }
-        .image-container {
-            flex: 0 0 400px;
-            margin-right: 20px;
-          
-            align-items: center;
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-        }
-        #newsImg,#newsImg2,#newsImg3{
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .content {
-            flex: 1;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        #newsDate {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        #newsContent {
-            line-height: 1.6;
-            color: #444;
-        }
+.image-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.Fullnews {
+    line-height: 1.6;
+    color: #444;
+}
   </style>
 </head>
 <body>
@@ -87,9 +89,10 @@
 
   <div class="news-container">
     <div class="image-container">
+        <img id="newsImg3" alt="">
         <img id="newsImg" alt="" >
         <img id="newsImg2" alt="">
-        <img id="newsImg3" alt="">
+      
         <img id="newsImg4" alt="">
     </div>
     <div class="content">
@@ -100,15 +103,26 @@
 </div>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const title = decodeURIComponent(urlParams.get('title'));
-        const date = decodeURIComponent(urlParams.get('date'));
-        const img1 = decodeURIComponent(urlParams.get('img1'));
-        const img2 = decodeURIComponent(urlParams.get('img2'));
-        const img3 = decodeURIComponent(urlParams.get('img3'));
-        const img4 = decodeURIComponent(urlParams.get('img4'));
-        const news = decodeURIComponent(urlParams.get('news'));
+        // Function to retrieve news data from URL parameters
+function getNewsDataFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get('title');
+    const date = urlParams.get('date');
+    const img1 = urlParams.get('img1');
+    const img2 = urlParams.get('img2');
+    const img3 = urlParams.get('img3');
+    const img4 = urlParams.get('img4');
+    const resume = urlParams.get('resume');
+    const news = urlParams.get('news');
 
+    return { title, date, img1, img2, img3, img4, resume, news };
+}
+
+// Function to display full news data
+function displayFullNews() {
+    const { title, date, img1, img2, img3, img4, resume, news } = getNewsDataFromURL();
+
+    if (title && date && img1 && img2 && img3 && img4 && resume && news) {
         document.getElementById('newsTitle').innerText = title;
         document.getElementById('newsDate').innerText = date;
         document.getElementById('newsImg').src = img1;
@@ -116,7 +130,14 @@
         document.getElementById('newsImg3').src = img3;
         document.getElementById('newsImg4').src = img4;
         document.getElementById('Fullnews').innerText = news;
-       
+    } else {
+        const fullNewsContainer = document.getElementById('full-news-container');
+        fullNewsContainer.innerHTML = '<p>News data not found.</p>';
+    }
+}
+
+// Call function to display full news data
+displayFullNews();
     </script>
 
 </section>
