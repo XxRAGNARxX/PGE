@@ -23,21 +23,7 @@ const database = getDatabase(firebase);
 document.getElementById("loginbtn").onclick = login
 document.getElementById("regbtn").onclick = register
 // Set up our register function
-function register() {
-  // Get all our input fields
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-  const full_name = document.getElementById('full_name').value
 
-  // Validate input fields
-  if (!validate_email(email) || !
-  validate_password(password)) {
-    alert('Email or Password is Outta Line!!')
-    return
-    // Don't continue running the code
-  }
-  
-}
 
 // Set up our login function
 function login() {
@@ -46,7 +32,7 @@ function login() {
   const password = document.getElementById('password').value
 
   // Validate input fields
-  if (validate_email(email) == false || validate_password(password) == false) {
+  if (validate_email(email) == false ) {
     alert('Email or Password is Outta Line!!')
     return
     // Don't continue running the code
@@ -65,10 +51,10 @@ function login() {
       last_login : Date.now()
     }
 
-    // Push to Firebase Database
+    // Push to Firebase 
     update(database_ref, user_data)
 
-    // DOne
+    // DOnee
     window.location.href = "adminMenu.html";
 
   })
@@ -93,12 +79,4 @@ function validate_email(email) {
   }
 }
 
-function validate_password(password) {
-  // Firebase only accepts lengths greater than 6
-  if (password < 6) {
-    return false
-  } else {
-    return true
-  }
-}
 

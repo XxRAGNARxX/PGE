@@ -92,15 +92,19 @@ async function displayFullGallery() {
 
             if (images && images.length > 0) {
                 images.forEach((imageUrl) => {
+                    const linkElement = document.createElement("a");
+                    linkElement.href = imageUrl; // Set href to image destination
+                    linkElement.setAttribute("data-lightbox", "moduls");
+
+                    // Create the <img> element
                     const imageElement = document.createElement("img");
                     imageElement.src = imageUrl;
                     imageElement.alt = "Gallery Image";
-                    imageElement.classList.add("gallery-image"); // Add a CSS class for styling
-                    // Set the desired width and height
-                    imageElement.style.width = "200px";
-                    imageElement.style.height = "150px";
-
-                    imagesContainer.appendChild(imageElement);
+                    imageElement.style.width = "100%";
+                    
+                    // Append <img> inside <a> and then append <a> to container
+                    linkElement.appendChild(imageElement);
+                    imagesContainer.appendChild(linkElement);
                 });
             }
         } else {
