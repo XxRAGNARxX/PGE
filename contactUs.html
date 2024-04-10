@@ -25,15 +25,15 @@
               <li> <a href="news.html">Новини</a></li>
               <li> <a href="contactUs.html">Контакти</a></li>
               <li> <a href="">Библиотека</a></li>
-              <li> <a href="">Галерия</a></li>
+              <li> <a href="albumeGalery.html">Галерия</a></li>
               <li> <a href="adminlogin.html">Админ</a></li>
           <div class="dropdown">
             <button class="dropbtn">Документи</button>
             <div class="dropdown-content">
-              <a href="documentsPriem.html">Прием</a>
-              <a href="#">Училищна документация</a>
-              <a href="#">Нормативни документи </a>
-              <a href="#">Бюджет</a>
+              <a href="documentsPriem.html?type=priem">Прием</a>
+              <a href="schoolDocuments.html?type=school">Училищна документация</a>
+              <a href="normativniDocuments.html?type=normativni">Нормативни документи </a>
+              <a href="budgetDocuments.html?type=budget">Бюджет</a>
             </div>
           </div>
               
@@ -43,29 +43,28 @@
     </nav> 
      <h1>Контакти</h1>
      </section>
-   
     <section class = "contact-section">
       <div class = "contact-body">
         <div class = "contact-info">
           <div>
             <span><i class = "fas fa-mobile-alt"></i></span>
-            <span>Phone No.</span>
-            <span class = "text">1-2392-23928-2</span>
+            <span>Телефон:</span>
+            <span class = "text">052 503 424</span>
           </div>
           <div>
             <span><i class = "fas fa-envelope-open"></i></span>
             <span>E-mail</span>
-            <span class = "text">mail@company.com</span>
+            <span class = "text">info-403531@edu.mon.bg</span>
           </div>
           <div>
             <span><i class = "fas fa-map-marker-alt"></i></span>
-            <span>Address</span>
-            <span class = "text">2939 Patrick Street, Vicotria TX, United States</span>
+            <span>Адрес</span>
+            <span class = "text">гр.Варна рул. Върба №24 </span>
           </div>
           <div>
             <span><i class = "fas fa-clock"></i></span>
-            <span>Opening Hours</span>
-            <span class = "text">Monday - Friday (9:00 AM to 5:00 PM)</span>
+            <span>Работно време</span>
+            <span class = "text">Всеки работен ден от 8:00ч до 19:00ч</span>
           </div>
         </div>
 
@@ -74,13 +73,13 @@
             <div>
               <input type="hidden" name="access_key" value="7047c07e-a3f8-45be-8f5e-c7c32b764c87">
               <input type = "text" class = "form-control" placeholder="First Name" name='first_name'>
-              <input type = "text" class = "form-control" placeholder="Last Name">
+              <input type = "text" class = "form-control" placeholder="Last Name"name='Last Name'>
             </div>
             <div>
-              <input type = "email" class = "form-control" placeholder="E-mail">
-              <input type = "text" class = "form-control" placeholder="Phone">
+              <input type = "email" class = "form-control" placeholder="E-mail" name='E-mail'>
+              <input type = "text" class = "form-control" placeholder="Phone" name='Phone'>
             </div>
-            <textarea rows = "5" placeholder="Message" class = "form-control"></textarea>
+            <textarea rows = "5" placeholder="Message" class = "form-control" name='Message'></textarea>
             <input type = "submit" class = "send-btn" value = "send message">
           </form>
 

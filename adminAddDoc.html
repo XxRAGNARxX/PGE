@@ -6,7 +6,7 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <link rel="stylesheet" href="contactUs.css">
+    <link rel="stylesheet" href="adminForms.css">
     <script src="documentsPriem.js" type="module"></script>
 </head>
 <body>
@@ -23,41 +23,44 @@
                         <label for="">Title</label>
                     </div>
                 </div>
+                <br>
                 <div class="form-row">
                   <div class="input-data">
+                    <br>
                       <input type="radio" id="priem" name="docType" value="priem">
                       <label for="priem">Прием</label>
                   </div>
-                  <div class="input-data">
+                  <div class="input-data"> <br>
                       <input type="radio" id="school" name="docType" value="school">
                       <label for="school">Училищна документация</label>
                   </div>
-                  <div class="input-data">
+                  <div class="input-data"> <br>
                       <input type="radio" id="normativni" name="docType" value="normativni">
                       <label for="normativni">Нормативни документи</label>
                   </div>
-                  <div class="input-data">
+                  <div class="input-data"> <br>
                       <input type="radio" id="budget" name="docType" value="budget">
                       <label for="budget">Бюджет</label>
                   </div>
               </div>
                 <div class="form-row">
                     <div>
+                        <br> <br> <br>
                         <input type="file" required id="pdfFile">
                         <div class="underline"></div>
                         
                     </div>
                 </div>
                 <div class="form-row submit-btn">
-                    <div class="input-data">
-                    </div>
+                    
                     <div class="input-data">
                         <div class="inner"></div>
-                        <input type="button" id="addDocPriemButton" value="Submit"></button>
+                        <input type="button" id="addDocPriemButton" value="Submit" class="rnd-btn"></button>
+                        
                     </div>
                 </div>
             </form>
-            <a href="adminMenu.html"><button><span>Back</span></button></a>
+            <a href="adminMenu.html"><button class="rnd-btn"><span>Back</span></button></a>
         </div>
     </div>
 
