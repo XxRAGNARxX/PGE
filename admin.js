@@ -21,8 +21,6 @@ const auth = getAuth(firebase);
 const database = getDatabase(firebase);
 
 document.getElementById("loginbtn").onclick = login
-document.getElementById("regbtn").onclick = register
-// Set up our register function
 
 
 // Set up our login function
@@ -55,12 +53,13 @@ function login() {
     update(database_ref, user_data)
 
     // DOnee
+    localStorage.setItem('userEmail', email);
     window.location.href = "adminMenu.html";
+
 
   })
   .catch(function(error) {
     // Firebase will use this to alert of its errors
-    var error_code = error.code
     var error_message = error.message
 
     alert(error_message)
@@ -76,6 +75,22 @@ function validate_email(email) {
   } else {
     // Email is not good
     return false
+  }
+}
+
+function checkLoginStatus() {
+  // Check if the email is present in local storage
+  const userEmail = localStorage.getItem('userEmail');
+
+  if (userEmail) {
+    // User is logged in, do something
+    console.log('User is logged in with email:', userEmail);
+    window.location.href = "adminMenu.html";
+  } else {
+    // User is not logged in, redirect to another page
+    console.log('User is not logged in');
+    // Redirect to login page or any other desired page
+    window.location.href = "adminlogin.html";
   }
 }
 
