@@ -53,7 +53,7 @@ function login() {
     update(database_ref, user_data)
 
     // DOnee
-    localStorage.setItem('userEmail', email);
+    sessionStorage.setItem('userEmail', email);
     window.location.href = "adminMenu.html";
 
 
@@ -78,20 +78,5 @@ function validate_email(email) {
   }
 }
 
-function checkLoginStatus() {
-  // Check if the email is present in local storage
-  const userEmail = localStorage.getItem('userEmail');
-
-  if (userEmail) {
-    // User is logged in, do something
-    console.log('User is logged in with email:', userEmail);
-    window.location.href = "adminMenu.html";
-  } else {
-    // User is not logged in, redirect to another page
-    console.log('User is not logged in');
-    // Redirect to login page or any other desired page
-    window.location.href = "adminlogin.html";
-  }
-}
 
 

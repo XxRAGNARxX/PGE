@@ -73,17 +73,19 @@
   cursor: pointer;
   padding-bottom: 15px;
   flex-direction: column;
-  border-radius: 8px;
+
+    border: 1px solid #ececec;
+
 }
 .carousel .card.img {
-
-  height: 148px;
-  width: 148px;
+  object-fit: cover;
+  object-position: center;
+  height: 250px;;
+  width: 100%;
 }
 .card .img img {
-  width: 160px;
-  height: 160px;
-  border-radius: 20px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   
 }

@@ -28,10 +28,10 @@ async function addNews(e) {
     const date = newsForm['date'].value;
     const resume = newsForm['resume'].value;
     const newsText = newsForm['news'].value;
-    let img1 = "";
-    let img2 = "";
-    let img3 = "";
-    let img4 = "";
+    let img1 = " ";
+    let img2 = " ";
+    let img3 = " ";
+    let img4 = " ";
 
     // Function to upload image to Firebase Storage
     const uploadImage = async (imageFile, imageName) => {
@@ -104,6 +104,45 @@ async function loadNews() {
                         <img src="${newsData.img1}" alt="img1" draggable="false" height="250px" width="350">
                     </div>
                     <div class="row-text">
+                        <span>Дата: ${newsData.date}</span>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                        <p>${newsData.resume}</p>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Read More...</a>
+                    </div>
+                </div>
+            `;
+            rowContainer.innerHTML += cardHtml;
+        });
+    } catch (error) {
+        console.error('Error loading news:', error);
+    }
+}
+async function loadLatestNews() {
+    const rowContainer = document.getElementById('index-row-container');
+    try {
+        const querySnapshot = await getDocs(collection(db, "news"));
+        rowContainer.innerHTML = "";
+
+        // Convert querySnapshot to an array and sort by date
+        const sortedNews = querySnapshot.docs.map(doc => doc.data()).sort((a, b) => {
+            // Convert date strings to Date objects for comparison
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            
+            // Sort in descending order
+            return dateB - dateA;
+        });
+
+        // Display only the latest 3 news items
+        const latest3News = sortedNews.slice(0, 3);
+
+        latest3News.forEach((newsData) => {
+            const cardHtml = `
+                <div class="row-box">
+                    <div class="row-img">
+                        <img src="${newsData.img1}" alt="img1" draggable="false" height="250px" width="350">
+                    </div>
+                    <div class="row-text">
                         <span>${newsData.date}</span>
                         <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
                         <p>${newsData.resume}</p>
@@ -117,10 +156,10 @@ async function loadNews() {
         console.error('Error loading news:', error);
     }
 }
-
+loadLatestNews()
 // Function to parse date string to Date object
 function parseDate(dateString) {
-    const [month, day, year] = dateString.split('/');
+    const [month,day , year] = dateString.split('/');
     return new Date(year, month - 1, day); // month - 1 because month is 0-indexed in Date object
 }
 

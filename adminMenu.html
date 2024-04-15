@@ -6,7 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="adminMenu.css">
 </head>
-<body>
+<script>
+    // Function to check local storage for userEmail
+    function checkLoginStatus() {
+        const userEmail = sessionStorage.getItem('userEmail');
+        if (!userEmail) {
+            window.location.href = "adminlogin.html";
+        }
+    }
+</script>
+<body onload="checkLoginStatus()">
       
 
 

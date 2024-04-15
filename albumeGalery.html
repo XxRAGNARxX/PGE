@@ -50,24 +50,9 @@
     </section>
     
     <section class="gallery">
-      <div class="galleryContainer" id="galleryContainer">
+      <div class="grid-gallery" id="galleryContainer">
           <!-- Images will be displayed here -->
       </div>
   </section>
-
-  <script>
-    // JavaScript for image caption hover effect
-    const imgContent = document.querySelectorAll('.img-content-hover');
-
-    function showImgContent(e) {
-        for(let i = 0; i < imgContent.length; i++) {
-            x = e.pageX;
-            y = e.pageY;
-            imgContent[i].style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        }
-    };
-
-    document.addEventListener('mousemove', showImgContent);
-</script>
 </body>
 </html>

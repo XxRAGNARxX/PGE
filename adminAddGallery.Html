@@ -8,8 +8,17 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="adminForms.css">
     <script src="adminAddGallery.js" type="module"></script>
+    <script>
+        // Function to check local storage for userEmail
+        function checkLoginStatus() {
+            const userEmail = sessionStorage.getItem('userEmail');
+            if (!userEmail) {
+                window.location.href = "adminlogin.html";
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkLoginStatus()">
     <div class="containerContacts">
         <div class="container">
             <div class="text">

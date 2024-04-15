@@ -6,10 +6,14 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="admin.js"></script>
     <link rel="stylesheet" href="adminForms.css">
     <script src="documentsPriem.js" type="module"></script>
+  
+    
 </head>
-<body onload="checkLoginStatus()">
+
+<body>
     <div class="containerContacts">
         <div class="container">
             <div class="text">
@@ -32,7 +36,7 @@
                   </div>
                   <div class="input-data"> <br>
                       <input type="radio" id="school" name="docType" value="school">
-                      <label for="school">Училищна документация</label>
+                      <label for="school">Училищни документи</label>
                   </div>
                   <div class="input-data"> <br>
                       <input type="radio" id="normativni" name="docType" value="normativni">
@@ -65,22 +69,6 @@
     </div>
 
     <iframe id="pdfViewer" width="100%" height="500px" style="display: none;"></iframe>
-    <script>
-        function checkLoginStatus() {
-  // Check if the email is present in local storage
-  const userEmail = localStorage.getItem('userEmail');
-
-  if (userEmail) {
-    // User is logged in, do something
-    console.log('User is logged in with email:', userEmail);
-    window.location.href = "adminMenu.html";
-  } else {
-    // User is not logged in, redirect to another page
-    console.log('User is not logged in');
-    // Redirect to login page or any other desired page
-    window.location.href = "adminlogin.html";
-  }
-}
-    </script>
+   
 </body>
 </html>

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <script src="lightbox-plus-jquery.js"></script>
     <style>
       .news-container {
     display: flex;
@@ -35,12 +37,6 @@
 .content {
     flex: 1;
     padding: 20px;
-}
-
-h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
 }
 
 .news-date {
@@ -79,25 +75,29 @@ h1 {
           </div>
               
             </ul>
-        </div>
+        </div>  
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav> 
-    <h1>За Нас</h1>
-    
+    <h1>Новини</h1>
 </section>
 <section class="events">
 
   <div class="news-container">
     <div class="image-container">
-        <img id="newsImg3" alt="">
-        <img id="newsImg" alt="" >
-        <img id="newsImg2" alt="">
-      
-        <img id="newsImg4" alt="">
+        <a  id="a1" data-lightbox="moduls">
+        <img id="newsImg1" alt="" ></a>
+         <a  id="a2" data-lightbox="moduls">
+        <img id="newsImg2" alt="" ></a>
+         <a  id="a3" data-lightbox="moduls">
+        <img id="newsImg3" alt="" > </a>
+        <a  id="a4" data-lightbox="moduls">
+        <img id="newsImg4" alt="" ></a>
     </div>
     <div class="content">
         <h1 id="newsTitle"></h1>
+        <p>Дата</p>
         <p id="newsDate"></p>
+        <br>
         <p id="Fullnews"></p>
     </div>
 </div>
@@ -120,12 +120,16 @@ function getNewsDataFromURL() {
 
 // Function to display full news data
 function displayFullNews() {
-    const { title, date, img1, img2, img3, img4, resume, news } = getNewsDataFromURL();
+    const { title, date, img1, img2, img3, img4, resume, news, } = getNewsDataFromURL();
 
-    if (title && date && img1 && img2 && img3 && img4 && resume && news) {
+    if (title && date && img1 && img2 && img3 && img4 && resume && news ) {
         document.getElementById('newsTitle').innerText = title;
         document.getElementById('newsDate').innerText = date;
-        document.getElementById('newsImg').src = img1;
+        document.getElementById('a1').href = img1;
+        document.getElementById('a2').href = img2;
+        document.getElementById('a3').href = img3;
+        document.getElementById('a4').href = img4;
+        document.getElementById('newsImg1').src = img1;
         document.getElementById('newsImg2').src = img2;
         document.getElementById('newsImg3').src = img3;
         document.getElementById('newsImg4').src = img4;
@@ -141,45 +145,5 @@ displayFullNews();
     </script>
 
 </section>
-<script>
-  
-    var navLinks=document.getElementById("navLinks")
-    function showMenu()
-    {
-        navLinks.style.right="0";
-    }
-    function hideMenu()
-    {
-        navLinks.style.right="-200px";
-    }
-    window.onscroll = function() {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document with smooth animation
-function topFunction() {
-  // For modern browsers
-  document.documentElement.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-  // For older browsers that do not support scrollIntoView
-  if (document.body.scrollTo) {
-    document.body.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-}
-</script>
 </body>
 </html>

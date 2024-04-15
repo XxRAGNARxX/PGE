@@ -33,7 +33,7 @@ async function loadGallery() {
             if (images && images.length > 0) {
                 // Create a div for the gallery item
                 const galleryItem = document.createElement("div");
-                galleryItem.classList.add("gallery-item");
+                galleryItem.classList.add("grid-item");
 
                 // Create a link for the image
                 const galleryLink = document.createElement("a");
@@ -92,6 +92,11 @@ async function displayFullGallery() {
 
             if (images && images.length > 0) {
                 images.forEach((imageUrl) => {
+                    // Create a <div> with class "grid-item"
+                    const gridItem = document.createElement("div");
+                    gridItem.classList.add("grid-item");
+
+                    // Create the <a> element
                     const linkElement = document.createElement("a");
                     linkElement.href = imageUrl; // Set href to image destination
                     linkElement.setAttribute("data-lightbox", "moduls");
@@ -102,9 +107,12 @@ async function displayFullGallery() {
                     imageElement.alt = "Gallery Image";
                     imageElement.style.width = "100%";
                     
-                    // Append <img> inside <a> and then append <a> to container
+                    // Append <img> inside <a> and then append <a> to grid item
                     linkElement.appendChild(imageElement);
-                    imagesContainer.appendChild(linkElement);
+                    gridItem.appendChild(linkElement);
+
+                    // Append grid item to the images container
+                    imagesContainer.appendChild(gridItem);
                 });
             }
         } else {
@@ -185,6 +193,6 @@ if (window.location.pathname === "/gallery.html") {
     loadGallery();
 } else if (window.location.pathname === "/fullGallery.html") {
     displayFullGallery();
-}
+};
 
 // design 

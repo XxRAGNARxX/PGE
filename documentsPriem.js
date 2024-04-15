@@ -98,6 +98,14 @@ function uploadPDF() {
 }
 
 // Call loadDocPriem to load data when the page is loaded
+
+    
+   
+        
+   
+
+const userEmail = sessionStorage.getItem('userEmail');
+ if (userEmail) {
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const pageType = urlParams.get('type');
@@ -114,5 +122,11 @@ window.onload = () => {
     } else {
         collectionName = "priem"; // Default collection name
     }
-    loadDocPriem(collectionName);
-};
+    loadDocPriem(collectionName); 
+}
+}
+else
+{
+    window.location.href = "adminlogin.html";
+}
+;

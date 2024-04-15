@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="adminForms.css">
+    <script>
+      // Function to check local storage for userEmail
+      function checkLoginStatus() {
+          const userEmail = sessionStorage.getItem('userEmail');
+          if (!userEmail) {
+              window.location.href = "adminlogin.html";
+          }
+      }
+  </script>
 </head>
-<body>
+<body onload="checkLoginStatus()">
 
 <div class="containerContacts">
 <div class="container">
@@ -33,7 +42,7 @@
         
     </div>
     <div>
-      <input type="file" required id="img2" accept="image/*">
+      <input type="file" id="img2" accept="image/*" >
       <div class="underline"></div>
       
   </div>
@@ -41,11 +50,11 @@
    <div class="form-row">
   <div>
     
-    <input type="file" required id="img3" accept="image/*">
+    <input type="file" id="img3" accept="image/*">
     <div class="underline"></div>
     </div>
     <div>
-      <input type="file" required id="img4" accept="image/*">
+      <input type="file"  id="img4" accept="image/*">
       <div class="underline"></div>
       </div>
 </div>
