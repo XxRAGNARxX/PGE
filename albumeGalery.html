@@ -15,37 +15,34 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
     <script src="adminAddGallery.js" type="module"></script>
 
-    <style>
- 
-    </style>
 </head>
 <body>
     <section class="sub-header">
-        <nav>
-            <a href="index.html"><img src="images/logo2.png"></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                 <ul>
-                  <li> <a href="index.html">Начало</a></li>
-                  <li> <a href="news.html">Новини</a></li>
-                  <li> <a href="contactUs.html">Контакти</a></li>
-                  <li> <a href="">Библиотека</a></li>
-                  <li> <a href="albumeGalery.html">Галерия</a></li>
-                  <li> <a href="adminlogin.html">Админ</a></li>
-              <div class="dropdown">
-                <button class="dropbtn">Документи</button>
-                <div class="dropdown-content">
-                  <a href="documentsPriem.html?type=priem">Прием</a>
-                  <a href="schoolDocuments.html?type=school">Училищна документация</a>
-                  <a href="normativniDocuments.html?type=normativni">Нормативни документи </a>
-                  <a href="budgetDocuments.html?type=budget">Бюджет</a>
-                </div>
-              </div>
-                  
-                </ul>
+      <nav>
+        <a href="index.html"><img src="images/logo2.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+             <ul>
+              <li> <a href="index.html">Начало</a></li>
+              <li> <a href="news.html">Новини</a></li>
+              <li> <a href="contactUs.html">Контакти</a></li>
+              <li> <a href="">Библиотека</a></li>
+              <li> <a href="albumeGalery.html">Галерия</a></li>
+              <li> <a href="adminlogin.html">Админ</a></li>
+          <div class="dropdown">
+            <button class="dropbtn">Документи</button>
+            <div class="dropdown-content">
+              <a href="documentsPriem.html?type=priem">Прием</a>
+              <a href="schoolDocuments.html?type=school">Училищни документи</a>
+              <a href="normativniDocuments.html?type=normativni">Нормативни документи </a>
+              <a href="budgetDocuments.html?type=budget">Бюджет</a>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav> 
+          </div>
+              
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav> 
         <h1>Gallery</h1>
     </section>
     
@@ -54,5 +51,49 @@
           <!-- Images will be displayed here -->
       </div>
   </section>
+  <footer class="footer">
+    <div class="footer-container">
+  
+      <div class="footer-row"> 
+        <div class="footer-col">
+    
+          <img src="images/logo2.png" width="350px">
+        </div>
+        <div class="footer-col"></div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="index.html">Начало</a></li>
+            <li><a href="news.html">Новини</a></li>
+            <li><a href="contactUs.html">Контакти</a></li>
+            <li><a href="">Библиотека</a></li>
+            <li><a href="albumeGalery.html">Галерия</a></li>
+            <li><a href="adminlogin.html">Админ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Документи</h4>
+          <ul>
+             <li><a href="documentsPriem.html?type=priem">Документи за прием</a></li>
+            <li><a href="schoolDocuments.html?type=school">Училищна документация</a></li>
+            <li><a href="normativniDocuments.html?type=normativni">Нормативни документи</a></li>
+            <li><a href="budgetDocuments.html?type=budget">Бюджет</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script> 
+var navLinks=document.getElementById("navLinks")
+  function showMenu()
+  {
+      navLinks.style.right="0";
+  }
+  function hideMenu()
+  {
+      navLinks.style.right="-200px";
+  }
+  </script>
 </body>
 </html>

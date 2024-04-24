@@ -9,7 +9,12 @@
     <script src="admin.js"></script>
     <link rel="stylesheet" href="adminForms.css">
     <script src="documentsPriem.js" type="module"></script>
-  
+  <script>
+     const userEmail = sessionStorage.getItem('userEmail');
+          if (!userEmail) {
+              window.location.href = "adminlogin.html";
+          }
+  </script>
     
 </head>
 
@@ -17,14 +22,14 @@
     <div class="containerContacts">
         <div class="container">
             <div class="text">
-                AddPriemDoc
+                Добави документ
             </div>
             <form>
                 <div class="form-row">
                     <div class="input-data">
                         <input type="text" required id="docPrieTtitle">
                         <div class="underline"></div>
-                        <label for="">Title</label>
+                        <label for="">Заглавие</label>
                     </div>
                 </div>
                 <br>

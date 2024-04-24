@@ -15,8 +15,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
-// Initialize variables
-
 const auth = getAuth(firebase);
 const database = getDatabase(firebase);
 
@@ -25,43 +23,25 @@ document.getElementById("loginbtn").onclick = login
 
 // Set up our login function
 function login() {
-  // Get all our input fields
   const email = document.getElementById('email').value
   const password = document.getElementById('password').value
-
-  // Validate input fields
   if (validate_email(email) == false ) {
     alert('Email or Password is Outta Line!!')
     return
-    // Don't continue running the code
   }
-
   signInWithEmailAndPassword(auth, email, password)
   .then(function() {
-    // Declare user variable
     var user = auth.currentUser
-
-    // Add this user to Firebase Database
     var database_ref = ref(database, "users/"+user.uid)
-
-    // Create User data
     var user_data = {
       last_login : Date.now()
     }
-
-    // Push to Firebase 
     update(database_ref, user_data)
-
-    // DOnee
     sessionStorage.setItem('userEmail', email);
     window.location.href = "adminMenu.html";
-
-
   })
   .catch(function(error) {
-    // Firebase will use this to alert of its errors
     var error_message = error.message
-
     alert(error_message)
   })
 }

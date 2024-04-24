@@ -31,8 +31,8 @@ async function loadGallery() {
 
             // Display only the first image from each gallery
             if (images && images.length > 0) {
-                // Create a div for the gallery item
                 const galleryItem = document.createElement("div");
+                
                 galleryItem.classList.add("grid-item");
 
                 // Create a link for the image
@@ -54,11 +54,7 @@ async function loadGallery() {
                 // Append the image and title to the link
                 galleryLink.appendChild(imageElement);
                 galleryLink.appendChild(titleElement);
-
-                // Append the link to the gallery item
                 galleryItem.appendChild(galleryLink);
-
-                // Append the gallery item to the gallery container
                 galleryContainer.appendChild(galleryItem);
             }
         });
@@ -110,7 +106,6 @@ async function displayFullGallery() {
                     // Append <img> inside <a> and then append <a> to grid item
                     linkElement.appendChild(imageElement);
                     gridItem.appendChild(linkElement);
-
                     // Append grid item to the images container
                     imagesContainer.appendChild(gridItem);
                 });

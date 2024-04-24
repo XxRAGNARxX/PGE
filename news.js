@@ -66,13 +66,8 @@ async function addNews(e) {
             img3: img3,
             img4: img4
         });
-
         console.log("News added successfully!");
-
-        // Clear the form
         newsForm.reset();
-
-        // Reload all news items
         loadNews();
     } catch (error) {
         console.error('Error adding news:', error);
@@ -146,7 +141,7 @@ async function loadLatestNews() {
                         <span>${newsData.date}</span>
                         <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
                         <p>${newsData.resume}</p>
-                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Read More...</a>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Прочети повече…</a>
                     </div>
                 </div>
             `;
@@ -159,8 +154,8 @@ async function loadLatestNews() {
 loadLatestNews()
 // Function to parse date string to Date object
 function parseDate(dateString) {
-    const [month,day , year] = dateString.split('/');
-    return new Date(year, month - 1, day); // month - 1 because month is 0-indexed in Date object
+    const [day,month,year] = dateString.split('/');
+    return new Date(year, month - 1, day); 
 }
 
 // Call loadNews() on page load

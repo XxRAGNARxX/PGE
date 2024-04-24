@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="swiderstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="lightbox.css">
     <script src="lightbox-plus-jquery.js"></script>
     <style>
@@ -53,35 +60,34 @@
 </head>
 <body>
     <section class="sub-header">
-      <nav>
-        <a href="index.html"><img src="images/logo2.png"></a>
-        <div class="nav-links" id="navLinks">
-            <i class="fa fa-times" onclick="hideMenu()"></i>
-             <ul>
-              <li> <a href="index.html">Начало</a></li>
-              <li> <a href="news.html">Новини</a></li>
-              <li> <a href="contactUs.html">Контакти</a></li>
-              <li> <a href="">Библиотека</a></li>
-              <li> <a href="albumeGalery.html">Галерия</a></li>
-              <li> <a href="adminlogin.html">Админ</a></li>
-          <div class="dropdown">
-            <button class="dropbtn">Документи</button>
-            <div class="dropdown-content">
-              <a href="documentsPriem.html?type=priem">Прием</a>
-              <a href="schoolDocuments.html?type=school">Училищна документация</a>
-              <a href="normativniDocuments.html?type=normativni">Нормативни документи </a>
-              <a href="budgetDocuments.html?type=budget">Бюджет</a>
+        <nav>
+            <a href="index.html"><img src="images/logo2.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                 <ul>
+                  <li> <a href="index.html">Начало</a></li>
+                  <li> <a href="news.html">Новини</a></li>
+                  <li> <a href="contactUs.html">Контакти</a></li>
+                  <li> <a href="">Библиотека</a></li>
+                  <li> <a href="albumeGalery.html">Галерия</a></li>
+                  <li> <a href="adminlogin.html">Админ</a></li>
+              <div class="dropdown">
+                <button class="dropbtn">Документи</button>
+                <div class="dropdown-content">
+                  <a href="documentsPriem.html?type=priem">Прием</a>
+                  <a href="schoolDocuments.html?type=school">Училищни документи</a>
+                  <a href="normativniDocuments.html?type=normativni">Нормативни документи </a>
+                  <a href="budgetDocuments.html?type=budget">Бюджет</a>
+                </div>
+              </div>
+                  
+                </ul>
             </div>
-          </div>
-              
-            </ul>
-        </div>  
-        <i class="fa fa-bars" onclick="showMenu()"></i>
-    </nav> 
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav> 
     <h1>Новини</h1>
 </section>
 <section class="events">
-
   <div class="news-container">
     <div class="image-container">
         <a  id="a1" data-lightbox="moduls">
@@ -101,7 +107,6 @@
         <p id="Fullnews"></p>
     </div>
 </div>
-
     <script>
         // Function to retrieve news data from URL parameters
 function getNewsDataFromURL() {
@@ -139,11 +144,20 @@ function displayFullNews() {
         fullNewsContainer.innerHTML = '<p>News data not found.</p>';
     }
 }
-
 // Call function to display full news data
 displayFullNews();
     </script>
-
+<script> 
+    var navLinks=document.getElementById("navLinks")
+      function showMenu()
+      {
+          navLinks.style.right="0";
+      }
+      function hideMenu()
+      {
+          navLinks.style.right="-200px";
+      }
+      </script>
 </section>
 </body>
 </html>
