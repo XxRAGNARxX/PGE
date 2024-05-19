@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="news.js" type="module"></script>
@@ -20,13 +21,11 @@
         <a href="index.html"><img src="images/logo2.png"></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
-             <ul>
+            <ul>
               <li> <a href="index.html">Начало</a></li>
               <li> <a href="news.html">Новини</a></li>
               <li> <a href="contactUs.html">Контакти</a></li>
-              <li> <a href="">Библиотека</a></li>
               <li> <a href="albumeGalery.html">Галерия</a></li>
-              <li> <a href="adminlogin.html">Админ</a></li>
           <div class="dropdown">
             <button class="dropbtn">Документи</button>
             <div class="dropdown-content">
@@ -42,12 +41,19 @@
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav> 
     <h1>Новини</h1>
+
 </section>
 
 <section class="events">
 <div class="row-container" id="row-container" onload="() => loadNews()">  <!--how will the news get here --></div>
             
+     <section class="pagenav">
+      
      
+<button id="prevButton"><i class="fa fa-arrow-left" aria-hidden="true" id="prevButton" style="font-size: 40px;"></i></button>
+<button id="nextButton"><i class="fa fa-arrow-right" aria-hidden="true" style="font-size: 40px;"></i></button>
+</section>
+
   </section>
   <footer class="footer">
     <div class="footer-container">
@@ -95,6 +101,7 @@
     window.onscroll = function() {
 
 };
+
 
 
 

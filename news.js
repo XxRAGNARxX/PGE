@@ -76,6 +76,7 @@ async function addNews(e) {
 }
 
 // Function to load news from the database and sort by date
+/*
 async function loadNews() {
     const rowContainer = document.getElementById('row-container');
     try {
@@ -108,6 +109,53 @@ async function loadNews() {
             `;
             rowContainer.innerHTML += cardHtml;
         });
+    } catch (error) {
+        console.error('Error loading news:', error);
+    }
+}
+*/
+
+async function loadNews(page = 1) {
+    const rowContainer = document.getElementById('row-container');
+    const itemsPerPage = 20; // Number of news items per page
+    const startAt = (page - 1) * itemsPerPage; // Calculate the starting index
+
+    try {
+        const querySnapshot = await getDocs(collection(db, "news"));
+        rowContainer.innerHTML = "";
+
+        // Convert querySnapshot to an array and sort by date
+        const sortedNews = querySnapshot.docs.map(doc => doc.data()).sort((a, b) => {
+            // Convert date strings to Date objects for comparison
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            
+            // Sort in descending order
+            return dateB - dateA;
+        });
+
+        // Slice the array to get only the news items for the current page
+        const newsForPage = sortedNews.slice(startAt, startAt + itemsPerPage);
+
+        newsForPage.forEach((newsData) => {
+            const cardHtml = `
+                <div class="row-box">
+                    <div class="row-img">
+                        <img src="${newsData.img1}" alt="img1" draggable="false" height="250px" width="350">
+                    </div>
+                    <div class="row-text">
+                        <span>Дата: ${newsData.date}</span>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}" class="row-title">${newsData.title}</a>
+                        <p>${newsData.resume}</p>
+                        <a href="fullnews.html?title=${encodeURIComponent(newsData.title)}&date=${encodeURIComponent(newsData.date)}&img1=${encodeURIComponent(newsData.img1)}&img2=${encodeURIComponent(newsData.img2)}&img3=${encodeURIComponent(newsData.img3)}&img4=${encodeURIComponent(newsData.img4)}&resume=${encodeURIComponent(newsData.resume)}&news=${encodeURIComponent(newsData.news)}">Read More...</a>
+                    </div>
+                </div>
+            `;
+            rowContainer.innerHTML += cardHtml;
+        });
+
+        // Return true if there are more news items to display, false otherwise
+        return startAt + itemsPerPage < sortedNews.length;
     } catch (error) {
         console.error('Error loading news:', error);
     }
@@ -169,4 +217,22 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Submitting form...");
         addNews(e); // Pass the event to the addNews function
     });
+});
+
+
+
+let currentPage = 1; // Start on page 1
+
+document.getElementById('nextButton').addEventListener('click', async () => {
+    currentPage++;
+    const hasMoreNews = await loadNews(currentPage);
+    document.getElementById('nextButton').disabled = !hasMoreNews;
+});
+
+document.getElementById('prevButton').addEventListener('click', async () => {
+    if (currentPage > 1) { // Prevent going to page 0 or negative
+        currentPage--;
+        const hasMoreNews = await loadNews(currentPage);
+        document.getElementById('nextButton').disabled = !hasMoreNews;
+    }
 });
